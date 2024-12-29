@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenTasks</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">ZenTasks</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#homePage">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#addTask">Add Task</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#myTasks">My Tasks</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search tasks" aria-label="Search">
+                        <button class="btn btn-outline-success" type="button" id="searchButton">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="homePage" class="container my-4">
+            <h1>Welcome to ZenTasks</h1>
+            <p>Stay organized, stay productive! Manage your daily tasks with ease.</p>
+        </section>
+        <section id="addTask" class="container my-4">
+            <h2>Add a New Task</h2>
+            <form id="taskForm">
+                <div class="mb-3">
+                    <label for="taskName" class="form-label">Task Name</label>
+                    <input type="text" id="taskName" class="form-control" placeholder="Enter task name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="taskDescription" class="form-label">Description</label>
+                    <textarea id="taskDescription" class="form-control" rows="3" placeholder="Enter task description"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="dueDate" class="form-label">Due Date</label>
+                    <input type="date" id="dueDate" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="priority" class="form-label">Priority</label>
+                    <select id="priority" class="form-select">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </form>
+        </section>
+        <section id="myTasks" class="container my-4">
+            <h2>My Tasks</h2>
+            <div id="taskList" class="list-group">
+                <!-- Tasks will be dynamically added here -->
+            </div>
+        </section>
+        <section id="pastTask">
+            <div class="container">
+                <h2>Past Tasks</h2>
+
+                <!-- Tabs for Completed and Deleted -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="completed-tab" href="#completed" data-bs-toggle="tab">Completed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="deleted-tab" href="#deleted" data-bs-toggle="tab">Deleted</a>
+                    </li>
+                </ul>
+
+                <!-- Tab content -->
+                <div class="tab-content mt-3">
+                    <div class="tab-pane fade show active" id="completed">
+                        <ul id="completedList" class="list-group">
+                            <!-- Completed tasks will be appended here -->
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="deleted">
+                        <ul id="deletedList" class="list-group">
+                            <!-- Deleted tasks will be appended here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
